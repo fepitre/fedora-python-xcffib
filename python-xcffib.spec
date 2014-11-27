@@ -1,6 +1,6 @@
 Summary: A drop in replacement for xpyb, an XCB python binding
 Name: python-xcffib
-Version: 0.1.8
+Version: 0.1.9
 Release: 1%{?dist}
 Source0: https://pypi.python.org/packages/source/x/xcffib/xcffib-%{version}.tar.gz
 License: ASL 2.0
