@@ -42,8 +42,8 @@ the 29 (xprint and xkb are missing) X extensions in 1.10.
 %{python2_sitelib}/xcffib*.egg-info
 
 %changelog
-* Thu Jan 22 2014 John Dulaney <jdulaney@fedoraproject.org> - 0.1.10-1
-- Updated to 0.1.10
+* Thu Jan 22 2015 John Dulaney <jdulaney@fedoraproject.org> - 0.1.10-2
+- Updated to latest version
 
 * Tue Nov 04 2014 John Dulaney <jdulaney@fedoraproject.org> - 0.1.8-1
 - Update to latest version
