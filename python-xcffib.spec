@@ -6,6 +6,7 @@ Source0: https://pypi.python.org/packages/source/x/xcffib/xcffib-%{version}.tar.
 License: ASL 2.0
 URL:  https://github.com/tych0/xcffib
 
+
 BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pycparser
