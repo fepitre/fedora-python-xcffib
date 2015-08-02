@@ -4,8 +4,8 @@
 
 Summary: A drop in replacement for xpyb, an XCB python binding
 Name: python-xcffib
-Version: 0.1.11
-Release: 3%{?dist}
+Version: 0.3.2
+Release: 2%{?dist}
 Source0: https://pypi.python.org/packages/source/x/xcffib/xcffib-%{version}.tar.gz
 License: ASL 2.0
 URL:  https://github.com/tych0/xcffib
@@ -18,13 +18,13 @@ BuildRequires:  python3-setuptools
 BuildRequires:  python-pycparser
 BuildRequires:  python3-pycparser
 BuildRequires:  libxcb-devel
-BuildRequires:  python-cffi
-BuildRequires:  python3-cffi
+BuildRequires:  python-cffi >= 1.1.2
+BuildRequires:  python3-cffi >= 1.1.2
 BuildRequires:  python-six
 BuildRequires:  python3-six
 
 Requires:  python-six
-Requires:  python-cffi
+Requires:  python-cffi >= 1.1.2
 Requires:  libxcb
 
 %description
@@ -38,7 +38,7 @@ the 29 (xprint and xkb are missing) X extensions in 1.10.
 %package -n python3-xcffib
 Summary: A drop in replacement for xpyb, an XCB python binding
 Requires:  python3-six
-Requires:  python3-cffi
+Requires:  python3-cffi >= 1.1.2
 Requires:  libxcb
 
 %description -n python3-xcffib
@@ -81,7 +81,6 @@ popd
 %doc LICENSE
 %doc README.md
 %{python2_sitelib}/xcffib
-%{python2_sitelib}/_cffi__*
 %{python2_sitelib}/xcffib*.egg-info
 
 %if 0%{?with_python3}
@@ -89,12 +88,17 @@ popd
 %doc LICENSE
 %doc README.md
 %{python3_sitelib}/xcffib
-%{python3_sitelib}/_cffi__*
 %{python3_sitelib}/xcffib*.egg-info
 %endif # with_python3
 
 
 %changelog
+* Sun Jul 12 2015 John Dulaney <jdulaney@fedoraproject.org - 0.3.2-2
+- Require newer python-cffi
+
+* Sun Jul 12 2015 John Dulaney <jdulaney@fedoraproject.org - 0.3.2-1
+- Update to latest upstream
+
 * Fri Jul 10 2015 John Dulaney <jdulaney@fedoraproject.org - 0.1.11-3
 - Python3
 
