@@ -5,7 +5,7 @@
 Summary: A drop in replacement for xpyb, an XCB python binding
 Name: python-xcffib
 Version: 0.3.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Source0: https://pypi.python.org/packages/source/x/xcffib/xcffib-%{version}.tar.gz
 License: ASL 2.0
 URL:  https://github.com/tych0/xcffib
@@ -92,13 +92,16 @@ popd
 
 
 %changelog
-* Sun Jul 12 2015 John Dulaney <jdulaney@fedoraproject.org - 0.3.2-2
+* Mon Aug 03 2015 John Dulaney <jdulaney@fedoraproject.org> - 0.3.2-4
+- Switch to noarch as no longer shipping C code
+
+* Sun Jul 12 2015 John Dulaney <jdulaney@fedoraproject.org> - 0.3.2-2
 - Require newer python-cffi
 
-* Sun Jul 12 2015 John Dulaney <jdulaney@fedoraproject.org - 0.3.2-1
+* Sun Jul 12 2015 John Dulaney <jdulaney@fedoraproject.org> - 0.3.2-1
 - Update to latest upstream
 
-* Fri Jul 10 2015 John Dulaney <jdulaney@fedoraproject.org - 0.1.11-3
+* Fri Jul 10 2015 John Dulaney <jdulaney@fedoraproject.org> - 0.1.11-3
 - Python3
 
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.1.11-2
