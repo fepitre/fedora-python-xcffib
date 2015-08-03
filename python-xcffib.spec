@@ -9,7 +9,7 @@ Release: 3%{?dist}
 Source0: https://pypi.python.org/packages/source/x/xcffib/xcffib-%{version}.tar.gz
 License: ASL 2.0
 URL:  https://github.com/tych0/xcffib
-
+BuildArch: noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python3-devel
@@ -70,11 +70,10 @@ popd
 %install
 %if 0%{?with_python3}
 pushd %{py3dir}
-%{__python3} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+%{__python3} setup.py install --skip-build --prefix=%{_prefix} --root $RPM_BUILD_ROOT
 popd
 %endif # with_python3
-
-%{__python2} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+%{__python2} setup.py install --skip-build --prefix=%{_prefix} --root $RPM_BUILD_ROOT
 
 
 %files
