@@ -1,27 +1,30 @@
-%if 0%{?fedora} > 12
+%if 0%{?fedora}
 %global with_python3 1
 %endif
 
 Summary: A drop in replacement for xpyb, an XCB python binding
 Name: python-xcffib
 Version: 0.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Source0: https://pypi.python.org/packages/source/x/xcffib/xcffib-%{version}.tar.gz
 License: ASL 2.0
 URL:  https://github.com/tych0/xcffib
 BuildArch: noarch
 
 BuildRequires:  python2-devel
-BuildRequires:  python3-devel
 BuildRequires:  python-setuptools
-BuildRequires:  python3-setuptools
 BuildRequires:  python-pycparser
-BuildRequires:  python3-pycparser
 BuildRequires:  libxcb-devel
 BuildRequires:  python-cffi >= 1.1.2
-BuildRequires:  python3-cffi >= 1.1.2
 BuildRequires:  python-six
+
+%if 0%{?with_python3}
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-pycparser
+BuildRequires:  python3-cffi >= 1.1.2
 BuildRequires:  python3-six
+%endif
 
 Requires:  python-six
 Requires:  python-cffi >= 1.1.2
@@ -58,22 +61,18 @@ cp -a . %{py3dir}
 %endif # with_python3
 
 %build
+%py2_build
 %if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py build
-popd
+%py3_build
 %endif # with_python3
 
-%{__python2} setup.py build
 
 
 %install
+%py2_install
 %if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py install --skip-build --prefix=%{_prefix} --root $RPM_BUILD_ROOT
-popd
+%py3_install
 %endif # with_python3
-%{__python2} setup.py install --skip-build --prefix=%{_prefix} --root $RPM_BUILD_ROOT
 
 
 %files
@@ -92,6 +91,9 @@ popd
 
 
 %changelog
+* Thu Nov 19 2015 John Dulaney <jdulaney@fedoraproject.org> - 0.4.0-2
+- Prepare for epel
+
 * Thu Nov 19 2015 John Dulaney <jdulaney@fedoraproject.org> - 0.4.0-1
 - Update to latest upstream
 
