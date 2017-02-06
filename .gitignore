@@ -2,6 +2,7 @@
 /xcffib-0.1.8.tar.gz
 /xcffib-0.1.9.tar.gz
 /xcffib-0.1.10.tar.gz
+/*.rpm
 /sources
 /clog
 /python-xcffib.spec
