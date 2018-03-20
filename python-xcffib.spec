@@ -1,18 +1,13 @@
 Summary: A drop in replacement for xpyb, an XCB python binding
 Name: python-xcffib
 Version: 0.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Source0: https://pypi.org/packages/source/x/xcffib/xcffib-%{version}.tar.gz
 License: ASL 2.0
 URL:  https://github.com/tych0/xcffib
 BuildArch: noarch
 
-BuildRequires:  python2-devel
-BuildRequires:  python2-setuptools
-BuildRequires:  python2-pycparser
 BuildRequires:  libxcb-devel
-BuildRequires:  python2-cffi >= 1.1.2
-BuildRequires:  python2-six
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
@@ -22,20 +17,6 @@ BuildRequires:  python3-six
 
 
 %description
-xcffib is intended to be a (mostly) drop-in replacement for xpyb.  xpyb
-has an inactive upstream, several memory leaks, is python2 only and doesn't
-have pypy support. xcffib is a binding which uses cffi, which mitigates
-some of the issues described above. xcffib also builds bindings for 27 of
-the 29 (xprint and xkb are missing) X extensions in 1.10.
-
-
-%package -n python2-xcffib
-Summary: A drop in replacement for xpyb, an XCB python binding
-Requires:  python2-six
-Requires:  python2-cffi
-Requires:  libxcb
-
-%description -n python2-xcffib
 xcffib is intended to be a (mostly) drop-in replacement for xpyb.  xpyb
 has an inactive upstream, several memory leaks, is python2 only and doesn't
 have pypy support. xcffib is a binding which uses cffi, which mitigates
@@ -62,21 +43,12 @@ the 29 (xprint and xkb are missing) X extensions in 1.10.
 
 
 %build
-%py2_build
 %py3_build
 
 
-
 %install
-%py2_install
 %py3_install
 
-
-%files -n python2-xcffib
-%doc LICENSE
-%doc README.md
-%{python2_sitelib}/xcffib
-%{python2_sitelib}/xcffib*.egg-info
 
 %files -n python3-xcffib
 %doc LICENSE
@@ -86,6 +58,9 @@ the 29 (xprint and xkb are missing) X extensions in 1.10.
 
 
 %changelog
+* Tue Mar 20 2018 John Dulaney <jdulaney@fedoraproject> - 0.6.0-2
+- Drop python2 subpackage
+
 * Fri Mar 09 2018 John Dulaney <jdulaney@fedoraproject> - 0.6.0-1
 - Update to latest release
 
