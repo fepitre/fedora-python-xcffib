@@ -3,7 +3,7 @@
 Summary:   A drop in replacement for xpyb, an XCB python binding
 Name:      python-xcffib
 Version:   0.8.1
-Release:   3%{?dist}
+Release:   4%{?dist}
 Source0:   %{pypi_source}
 License:   ASL 2.0
 URL:       https://github.com/tych0/xcffib
@@ -60,6 +60,9 @@ the 29 (xprint and xkb are missing) X extensions in 1.10.
 
 
 %changelog
+* Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.8.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Thu Oct 03 2019 Miro Hrončok <mhroncok@redhat.com> - 0.8.1-3
 - Rebuilt for Python 3.8.0rc1 (#1748018)
 
